@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Wingo Prediction Lab</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<header><div><h1>Wingo Prediction Lab</h1><p>Automatic snapshot collector & history analyzer</p></div><span id="status">Waiting for site data</span></header>
+<main>
+<section class="metrics">
+<div class="metric"><small>Captured responses</small><strong id="total">0</strong></div>
+<div class="metric"><small>Latest snapshot</small><strong id="snap">—</strong></div>
+<div class="metric"><small>History records</small><strong id="historyCount">0</strong></div>
+</section>
+<section class="panel">
+<div class="line"><h2>Live Energy Panel</h2><div><button id="fetchLive">Fetch signed API</button> <button id="refresh">Refresh</button></div></div><p class="muted">Uses the signature algorithm found in the supplied site bundle. Live API availability still depends on the service accepting this client request.</p>
+<div id="snapshot" class="muted">Open the Wingo page in another tab and keep it open. The extension records matching responses from that page.</div>
+<div id="numbers" class="numbers"></div>
+</section>
+<section class="panel">
+<div class="line"><h2>History & pattern summary</h2><button id="export">Export JSON</button></div>
+<div id="analysis" class="muted">Waiting for history responses…</div>
+<div class="tablewrap"><table><thead><tr><th>Issue</th><th>Number</th><th>Size</th><th>Color</th><th>Time</th></tr></thead><tbody id="rows"></tbody></table></div>
+</section>
+<section class="panel note">
+<h2>Important</h2>
+<p>This tool reports observed data and descriptive frequencies. It cannot reliably predict random lottery outcomes or guarantee profit. It does not place bets or send betting requests.</p>
+<p>Captured data stays in this browser's extension storage unless you export it.</p>
+<button id="clear" class="danger">Clear local captured data</button>
+</section>
+</main>
+<script src="popup.js"></script>
+</body></html>

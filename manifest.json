@@ -1,0 +1,49 @@
+{
+  "manifest_version": 3,
+  "name": "Wingo Prediction Lab - Snapshot Collector",
+  "version": "1.1.0",
+  "description": "Collects Energy Panel and public history responses from a Wingo page you are already logged into, then analyzes observed history locally.",
+  "permissions": [
+    "storage"
+  ],
+  "host_permissions": [
+    "https://*.91club.com/*",
+    "https://*.kanpur91.com/*",
+    "https://draw.ar-lottery01.com/*",
+    "https://*.91clubapi.com/*",
+    "https://*.ar-lottery01.com/*",
+    "https://api.ar-lottery01.com/*"
+  ],
+  "action": {
+    "default_title": "Wingo Prediction Lab",
+    "default_popup": "popup.html"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://*.kanpur91.com/*",
+        "https://*.ar-lottery01.com/*",
+        "https://*.91club.com/*"
+      ],
+      "js": [
+        "content.js"
+      ],
+      "run_at": "document_start"
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "page-hook.js"
+      ],
+      "matches": [
+        "https://*.kanpur91.com/*",
+        "https://*.ar-lottery01.com/*",
+        "https://*.91club.com/*"
+      ]
+    }
+  ],
+  "background": {
+    "service_worker": "service-worker.js"
+  }
+}
